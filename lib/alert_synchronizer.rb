@@ -36,7 +36,7 @@ class AlertSynchronizer < Synchronizer
   # @return [Hash] alert name -> alert id
   def fetch_from_datadog
     dog_alerts = handle_datadog_errors { @dog.get_all_alerts }
-    alerts = dog_alerts.fetch('alerts')
+    alerts = dog_alerts.fetch('alerts', [])
     logger.info "Found #{alerts.size} alerts at Datadog"
 
     result = {}
@@ -60,6 +60,11 @@ class AlertSynchronizer < Synchronizer
       @dog.delete_alert(alert_id)
     end
   end
+
+  def delete(id)
+    @dog.delete_alert(id)
+  end
+
 
   def fetch_by_id(id)
     @dog.get_alert(id)

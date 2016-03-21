@@ -4,7 +4,7 @@ class ScreenSynchronizer < Synchronizer
 
   def fetch_from_datadog
     dog_response = handle_datadog_errors { @dog.get_all_screenboards }
-    screens = dog_response.fetch('screenboards')
+    screens = dog_response.fetch('screenboards', [])
     logger.info "Found #{screens.size} screenboards at Datadog"
 
     screens.each_with_object({}) do |screen, screens|
@@ -28,6 +28,10 @@ class ScreenSynchronizer < Synchronizer
     if result[0] != "200"
       logger.error "Failed to create screen #{result.inspect}"
     end
+  end
+
+  def delete(id)
+    @dog.delete_screenboard(id)
   end
 
   def unknown_screen_names(templates)
