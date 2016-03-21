@@ -6,7 +6,7 @@ Persist your DataDog configuration in versioned text files which can be edited l
 
 We added tags, it's a breaking change because in order to use it, you'll have to specify the tags that you want associated with your deployment (see below for details). We're calling this `version 2.x`, and moving forward development will be incorporated into this branch. 
 
-Please use `version 1.x` if you do not want to change your config.yml. 
+Please use branch `v1` if you do not want to change your config.yml. 
 
 ### Updating to version 2.x
 [ ]  Add a key to your environment name called 'tags'  
