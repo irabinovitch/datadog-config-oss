@@ -11,7 +11,7 @@ class ErbContext < OpenStruct
 
   def threshold_value(widget_query, threshold_color)
     raise 'there are no thresholds defined for this template' if thresholds.nil?
-    raise 'default thresholds were not defined' if thresholds == []
+    # raise 'default thresholds were not defined' if thresholds == []
 
     threshold = thresholds.select do |threshold|
       threshold["query"] == widget_query &&

@@ -54,7 +54,7 @@ class Synchronizer
 
   def thresholds_for_yaml_file(yaml_file_path)
     all_thresholds = YAML.parse_file(yaml_file_path).to_ruby
-    default_thresholds = all_thresholds["prod"]
+    default_thresholds = all_thresholds["prod"] || []
     thresholds = all_thresholds[@environment] || []
 
     default_thresholds.each do |default_threshold|
