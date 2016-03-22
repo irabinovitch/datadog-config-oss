@@ -3,7 +3,7 @@
   "notify_audit": true,
   "timeout_h": null,
   "silenced": false,
-  "query": "min(last_1m):avg:datadog.nozzle.bbs.LRPsMissing{deployment:<%= deployment %>-diego} > 10",
+  "query": "min(last_1m):avg:datadog.nozzle.bbs.LRPsMissing{deployment:<%= diego_deployment %>} > 10",
   "message": "@pagerduty-datadog-cloudops-service @oncall-Diego_Production_Primary",
   "id": 394575,
   "name": "<%= environment %> Diego: Missing LRPs are too high",
