@@ -1,0 +1,9 @@
+{
+  "name": "<%= environment %> Logsearch: Longlasting unhealthy state below threshold for logstash",
+  "silenced": false,
+  "no_data_timeframe": 20,
+  "notify_no_data": true,
+  "query": "avg(last_30m):min:bosh.healthmonitor.system.healthy{!job:acceptance_test,!job:api,!job:curator,!job:elasticsearch_autoscale,!job:elasticsearch_persistent,!job:log_parser,!job:metrics_collector,!job:queue,
+  deployment:<%= elk_deployment %>} < 0.8",
+  "message": "## Description:\n One or more of the logstash BOSH agents are reporting either that the VM that they are running on or the  logstash job that they are running is unhealthy for over 30 minutes. <%= cloudops_non_critical_pagerduty %> \n\n## Escalation Path:\n  CloudOps BJ Team. \n\n## Possible Causes:\n## Potential Solutions:\n\n##Feedback:\n Have feedback for this alert? [File an issue](https://github.com/pivotal-cf/datadog-config/issues/new)"
+}
