@@ -6,7 +6,7 @@
   "query": "min(last_30m):avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= diego_deployment %>} by {index,job} >= 25",
   "message": "The cell {{job.name}} {{index.name}} is currently experiencing high load.  This may be due to a zombie process.\n\nIf it is, drain the cell and restart it.\n\n```\nbosh recreate {{job.name}} {{index.name}}  \n``` \n@pagerduty-datadog-cloudops-service",
   "id": 445946,
-  "name": "Possible Zombie Process",
+  "name": "<%= environment %> diego: Possible Zombie Process",
   "no_data_timeframe": 60,
   "creator": 160911,
   "notify_no_data": false,
