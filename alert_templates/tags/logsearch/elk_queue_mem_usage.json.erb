@@ -6,7 +6,7 @@
   "query": "avg(last_1m):avg:bosh.healthmonitor.system.mem.percent{deployment:<%= elk_deployment %>,job:queue_z1} > 50",
   "message": "solutions: 1. please check log_parser or 2. redirect traffic to a new queue node.  @pagerduty-datadog-cloudops-service",
   "id": 512359,
-  "name": "ELK queue node memory exceeds 50%.",
+  "name": "<%= environment %> logsearch: ELK queue node memory exceeds 50%.",
   "no_data_timeframe": 2,
   "creator": 12842,
   "notify_no_data": true,
