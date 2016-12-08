@@ -1,6 +1,6 @@
 # Datadog Config
 
-Persist your DataDog configuration in versioned text files which can be edited locally. Pull down existing config and push changes at will.
+Persist your Datadog configuration in versioned text files which can be edited locally. Pull down existing config and push changes at will.
 
 ### Updating to version 2.x
 [ ]  Add a key to your environment name called 'tags'  
@@ -55,7 +55,7 @@ Note: `cf_deployment`, as used above, is a placeholder for a deployment named in
 #### Creating a new deployment
 1. Copy `config-example.yml` to `config.yml` and update it to match your environment, see [config.yml](#configyml) section below for more information on the parameters used therein.
 
-#### Creating a new dashboard by importing from DataDog
+#### Creating a new dashboard by importing from Datadog
 1. Make sure your `config.yml` file is populated with necessary values. See [config.yml](#configyml) section below for more information.
 2. Create a dashboard on the Datadog web UI (Dashboards -> New Dashboard)
 3. Import the dashboard by ID, `https://app.datadoghq.com/dash/85829` where 85829 is the dashboard ID.
@@ -76,12 +76,12 @@ Note: `cf_deployment`, as used above, is a placeholder for a deployment named in
 
 ### Alerts
 
-#### Creating a new alert from DataDog
+#### Creating a new alert from Datadog
 Basically the same workflow as dashboards, but with different commands.
 
         bundle exec rake <environment>:get_alert_json_erb[<id number>,<path/to/template.json.erb>]
 
-#### Pushing alerts to DataDog
+#### Pushing alerts to Datadog
 
         bundle exec rake prod:push
 
@@ -132,7 +132,7 @@ screen_templates/
 └── tags
 ```
 
-The screen_templates folder contains all of the template and thresholds for screen boards.  Templates in the `shared` folder are pushed to all of the environments, while templates in e.g. the `prod` folder will only be pushed to the prod DataDog.  Move the template json/erb file to the
+The screen_templates folder contains all of the template and thresholds for screen boards.  Templates in the `shared` folder are pushed to all of the environments, while templates in e.g. the `prod` folder will only be pushed to the prod Datadog.  Move the template json/erb file to the
 appropriate folder and move the thresholds yaml to the same folder so that the two files are siblings.
 `tags` will contain folders, and if the tag is present in `config.yml`, json/erb files present will be included for that environment.
 
